@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="HomeWorkMVVM.MainPage">
+    <ContentPage.Content>
+        
+        
+        <StackLayout>
+
+            <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+                <Label Text="ПРИВЕТОЧКИ" HorizontalOptions="Center" FontSize="20" TextColor="AliceBlue"></Label>
+            </Frame>
+            <Button Text="Load Data" BackgroundColor="BlanchedAlmond" Command="{Binding FILL}" Clicked="Button_Clicked"></Button>
+            <ScrollView>
+                <StackLayout  BindableLayout.ItemsSource="{Binding}" x:Name="Data_list">
+                   
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+
+                        <Label TextColor="#2F3246"  Grid.Column="0" HorizontalOptions="Start" HorizontalTextAlignment="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+
+                                        <Span Text="{Binding Name&#10;}" FontAttributes="Bold" FontSize="20"/>
+
+                                        <Span Text=" - "/>
+                                        <Span Text="{ Binding Gender&#10;}" FontSize="16" TextColor="Green"/>
+                                        <Span Text=" - "/>
+                                        <Span Text="{Binding Status}"  FontSize="16"></Span>
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+            </ScrollView>
+        </StackLayout>
+       
+        
+   
+    
+    </ContentPage.Content>
+</ContentPage>
